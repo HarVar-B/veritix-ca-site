@@ -282,7 +282,8 @@
 
         .info-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            /* Aligns label to top for multi-line text */
             margin-bottom: 1.5rem;
             color: var(--text-dim);
         }
@@ -291,6 +292,14 @@
             color: var(--accent);
             font-weight: 600;
             width: 100px;
+            flex-shrink: 0;
+            /* Prevents label from shrinking */
+        }
+
+        .info-item span:not(.info-label),
+        .info-item a {
+            flex: 1;
+            /* Ensures text takes remaining space and wraps correctly */
         }
 
         /* Form Styles */
@@ -375,6 +384,8 @@
 
             .info-item {
                 justify-content: center;
+                text-align: left;
+                /* Keeps text aligned within the flex item */
             }
 
             .modal-content {
